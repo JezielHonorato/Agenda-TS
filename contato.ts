@@ -3,52 +3,67 @@ export enum Tipo {
   FAMILIA = "Familiares",
   ESCOLA = "Colegas da escola",
   IGREJA = "Membros da igreja",
-  TRABALHO = "Colegas de Trabalho",
+  TRABALHO = "Colegas de trabalho",
 }
 
 export class Contato {
-  private __nome: string;
-  private __telefone: string;
-  private __email: string | undefined;
-  private __aniversario: Date | undefined;
-  private __tipo: Tipo | undefined;
+  private nome: string;
+  private telefone: string;
+  private email?: string;
+  private aniversario?: Date;
+  private tipo?: Tipo;
 
-  constructor(nome: string, telefone: string, email: string | undefined = undefined, data: string | undefined = undefined, tipo: Tipo | undefined = undefined) {
-    this.__nome = nome;
-    this.__telefone = telefone;
-    this.__email = email;
-    this.__aniversario = this.aniversario;
-    this.__tipo = tipo;
+  constructor(
+    nome: string,
+    telefone: string,
+    email?: string,
+    data?: string,
+    tipo?: Tipo
+  ) {
+    this.nome = nome;
+    this.telefone = telefone;
+    this.email = email;
+    this.aniversario = data ? new Date(data) : undefined;
+    this.tipo = tipo;
   }
 
-  set nome(nome: string) {
-    this.__nome = nome;
+  setNome(nome: string): void {
+    this.nome = nome;
   }
-  set telefone(telefone: string) {
-    this.__telefone = telefone;
+
+  setTelefone(telefone: string): void {
+    this.telefone = telefone;
   }
-  set email(email: string) {
-    this.__email = email;
+
+  setEmail(email?: string): void {
+    this.email = email;
   }
-  set aniversario(data: string) {
-    this.__aniversario = new Date(data);
+
+  setAniversario(data: string): void {
+    this.aniversario = new Date(data);
   }
-  set tipo(tipo: Tipo) {
-    this.__tipo = tipo;
+
+  setTipo(tipo?: Tipo): void {
+    this.tipo = tipo;
   }
-  get nome(): string {
-    return this.__nome;
+
+  getNome(): string {
+    return this.nome;
   }
-  get telefone(): string {
-    return this.__telefone;
+
+  getTelefone(): string {
+    return this.telefone;
   }
-  get email(): string | undefined{
-    return this.__email;
+
+  getEmail(): string | undefined {
+    return this.email;
   }
-  get aniversario(): Date | undefined{
-    return this.__aniversario;
+
+  getAniversario(): Date | undefined {
+    return this.aniversario;
   }
-  get tipo(): Tipo | undefined {
-    return this.__tipo;
+
+  getTipo(): Tipo | undefined {
+    return this.tipo;
   }
 }

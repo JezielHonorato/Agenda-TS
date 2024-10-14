@@ -1,45 +1,58 @@
 import { Tipo, Contato } from "./contato";
 
 class Agenda {
-  private __contatos: Contato[];
+  private contatos: Contato[];
 
-  constructor(...contato: Contato[]) {
-    this.__contatos = contato;
+  constructor(...contatos: Contato[]) {
+    this.contatos = contatos;
   }
 
-  set contato(contato: Contato) {
-    this.__contatos.push(contato);
+  adicionarContato(contato: Contato): boolean {
+    if (this.contatos.some(c => c.getTelefone() === contato.getTelefone())) { // .some retorna true ou false
+      console.log("Contato com o mesmo telefone já existe.");
+      return false;
+    }
+    this.contatos.push(contato);
+    return true;
   }
-  get contatos() {
-    return this.__contatos;
+
+  get contatosList(): Contato[] {
+    return this.contatos;
   }
 
   pesquisarContatoNome(nome: string): Contato[] {
-    const listaContatos: Contato[] = [];
-    for (let count = 0; count < this.__contatos.length; count++) {
-      if (nome && this.__contatos[count].nome.toLowerCase().includes(nome.toLowerCase())) {
-        listaContatos.push(this.__contatos[count]);
-      }
-    }
-    return listaContatos
+    return this.contatos.filter(contato => // .filter retorna um novo array
+      contato.getNome().toLowerCase().includes(nome.toLowerCase())
+    );
   }
 
   pesquisarContatoTelefone(telefone: string): Contato | false {
-    for (let count = 0; count < this.__contatos.length; count++) {
-      if (this.__contatos[count].telefone == telefone) {
-        return this.__contatos[count];
-      }
-    }
-    return false
+    const contato = this.contatos.find(c => c.getTelefone() === telefone); // .find retorna o primeiro item
+    return contato || false;
   }
 
   pesquisarContatoEmail(email: string): Contato | false {
-    for (let count = 0; count < this.__contatos.length; count++) {
-      if (this.__contatos[count].email == email) {
-        return this.__contatos[count];
-      }
+    const contato = this.contatos.find(c => c.getEmail() === email);
+    return contato || false;
+  }
+
+  removerContatoPorTelefone(telefone: string): boolean {
+    const index = this.contatos.findIndex(c => c.getTelefone() === telefone);
+    if (index !== -1) {
+      this.contatos.splice(index, 1);
+      console.log("Contato removido com sucesso.");
+      return true;
     }
+    console.log("Contato não encontrado.");
     return false;
+  }
+
+  listarContatos(): void {
+    this.contatos.forEach(contato => {
+      console.log(
+        `Nome: ${contato.getNome()}, Telefone: ${contato.getTelefone()}, Email: ${contato.getEmail()}, Tipo: ${contato.getTipo()}`
+      );
+    });
   }
 }
 
@@ -51,11 +64,14 @@ let contatoJeziel = new Contato(
   Tipo.AMIGO
 );
 
-let agenda = new Agenda(
-  contatoJeziel,
-  contatoJeziel,
-  contatoJeziel,
-  contatoJeziel
-);
+let agenda = new Agenda();
 
-console.log(agenda);
+agenda.adicionarContato(contatoJeziel);
+agenda.listarContatos();
+
+console.log(agenda.pesquisarContatoNome("Jeziel"));
+console.log(agenda.pesquisarContatoTelefone("84991088201"));
+console.log(agenda.pesquisarContatoEmail("jeziel.h@escolar.ifrn.edu.br"));
+
+agenda.removerContatoPorTelefone("84991088201");
+agenda.listarContatos();
