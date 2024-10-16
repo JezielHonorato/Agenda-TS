@@ -55,7 +55,7 @@ export class Agenda {
     });
   }
 }
-
+/*
 let contatoJeziel = new Contato(
   "Jeziel Honorato",
   "84991088201",
@@ -64,7 +64,7 @@ let contatoJeziel = new Contato(
   Tipo.AMIGO
 );
 
-/*
+
 let agenda = new Agenda();
 
 agenda.adicionarContato(contatoJeziel);

@@ -7,8 +7,10 @@ import { Agenda } from './agenda';
   templateUrl: './adiciona-contato.component.html',
   styleUrl: './adiciona-contato.component.css'
 })
+
 export class AdicionaContatoComponent {
   private agenda: Agenda;
+  contatos: Contato[] = [];
 
   constructor() {
     this.agenda = new Agenda();
@@ -17,8 +19,10 @@ export class AdicionaContatoComponent {
   adicionar(nome: string, telefone: string, email: string, data: string, tipo: string): void {
     const tipoEnum = Tipo[tipo as keyof typeof Tipo];
     const pessoa = new Contato(nome, telefone, email, data, tipoEnum);
-    this.agenda.adicionarContato(pessoa);
-    this.agenda.listarContatos();
-    console.log("foiii")
+    
+    if (this.agenda.adicionarContato(pessoa)) {
+      this.contatos = this.agenda.contatosList;
+    }
+    console.log("Contato adicionado com sucesso");
   }
 }
