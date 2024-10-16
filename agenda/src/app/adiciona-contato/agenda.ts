@@ -1,6 +1,6 @@
 import { Tipo, Contato } from "./contato";
 
-class Agenda {
+export class Agenda {
   private contatos: Contato[];
 
   constructor(...contatos: Contato[]) {
@@ -64,6 +64,7 @@ let contatoJeziel = new Contato(
   Tipo.AMIGO
 );
 
+/*
 let agenda = new Agenda();
 
 agenda.adicionarContato(contatoJeziel);
@@ -75,3 +76,4 @@ console.log(agenda.pesquisarContatoEmail("jeziel.h@escolar.ifrn.edu.br"));
 
 agenda.removerContatoPorTelefone("84991088201");
 agenda.listarContatos();
+*/
