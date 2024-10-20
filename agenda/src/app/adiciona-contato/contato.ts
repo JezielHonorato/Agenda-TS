@@ -1,9 +1,10 @@
-export enum Tipo {
-  AMIGO = "Amigos",
-  FAMILIA = "Familiares",
-  ESCOLA = "Colegas da escola",
-  IGREJA = "Membros da igreja",
-  TRABALHO = "Colegas de trabalho",
+export enum Grupo {
+  AMIGO = 'Amigos',
+  FAMILIA = 'Familiares',
+  ESCOLA = 'Colegas da escola',
+  IGREJA = 'Membros da igreja',
+  TRABALHO = 'Colegas de trabalho',
+value="value",
 }
 
 export class Contato {
@@ -11,20 +12,20 @@ export class Contato {
   private telefone: string;
   private email?: string;
   private aniversario?: Date;
-  private tipo?: Tipo;
+  private grupo?: Grupo;
 
   constructor(
     nome: string,
     telefone: string,
     email?: string,
     data?: string,
-    tipo?: Tipo
+    grupo?: Grupo
   ) {
     this.nome = nome;
     this.telefone = telefone;
     this.email = email;
     this.aniversario = data ? new Date(data) : undefined;
-    this.tipo = tipo;
+    this.grupo = grupo;
   }
 
   setNome(nome: string): void {
@@ -43,8 +44,8 @@ export class Contato {
     this.aniversario = new Date(data);
   }
 
-  setTipo(tipo?: Tipo): void {
-    this.tipo = tipo;
+  setGrupo(grupo?: Grupo): void {
+    this.grupo = grupo;
   }
 
   getNome(): string {
@@ -63,7 +64,7 @@ export class Contato {
     return this.aniversario;
   }
 
-  getTipo(): Tipo | undefined {
-    return this.tipo;
+  getGrupo(): Grupo | undefined {
+    return this.grupo;
   }
 }

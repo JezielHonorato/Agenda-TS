@@ -1,4 +1,4 @@
-import { Tipo, Contato } from "./contato";
+import { Grupo, Contato } from "./contato";
 
 export class Agenda {
   private contatos: Contato[];
@@ -50,30 +50,8 @@ export class Agenda {
   listarContatos(): void {
     this.contatos.forEach(contato => {
       console.log(
-        `Nome: ${contato.getNome()}, Telefone: ${contato.getTelefone()}, Email: ${contato.getEmail()}, Tipo: ${contato.getTipo()}`
+        `Nome: ${contato.getNome()}, Telefone: ${contato.getTelefone()}, Email: ${contato.getEmail()}, Tipo: ${contato.getGrupo()}`
       );
     });
   }
 }
-
-let contatoJeziel = new Contato(
-  "Jeziel Honorato",
-  "84991088201",
-  "jeziel.h@escolar.ifrn.edu.br",
-  "2006-06-15",
-  Tipo.AMIGO
-);
-
-/*
-let agenda = new Agenda();
-
-agenda.adicionarContato(contatoJeziel);
-agenda.listarContatos();
-
-console.log(agenda.pesquisarContatoNome("Jeziel"));
-console.log(agenda.pesquisarContatoTelefone("84991088201"));
-console.log(agenda.pesquisarContatoEmail("jeziel.h@escolar.ifrn.edu.br"));
-
-agenda.removerContatoPorTelefone("84991088201");
-agenda.listarContatos();
-*/

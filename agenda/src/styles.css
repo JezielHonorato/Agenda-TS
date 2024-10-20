@@ -23,27 +23,89 @@ input[type=number]::-webkit-outer-spin-button {
 
 body {
   position: relative;
-  background-color: #000000;
+  background-color: #1b1027;
 }
 
 
+main {
+  margin: auto;
+  width: 80%;
+}
 
-input, select {
-  background-color: #000000;
+.formNovoContato{
+  justify-content: space-between;
+}
+
+input,
+select {
+  display: flex;
+  background-color: #1b1027;
   text-indent: 1rem;
   height: 2rem;
+  width: 25%;
   border-radius: 5px;
-  border: 2px solid #4B0082;
+  border: 2px solid #2f135d;
   outline: none;
-  transition: border-color 0.3s; 
+  transition: border-color 0.3s;
 }
 
-input:focus {
+input:focus,
+select:focus {
   border-color: #6A0DAD;
-  background-color: #2F2F2F;
+  background-color: #3a334d;
 }
 
-a, label, option, ::placeholder, th, td, button, span, p, input, select, h1, h2, h3, sub {
+a,
+label,
+option,
+::placeholder,
+th,
+td,
+button,
+span,
+p,
+input,
+select,
+h1,
+h2,
+h3,
+sub {
   color: #B0B0B0;
   text-decoration: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 100px;
+}
+
+thead th {
+  background-color: #2f135d;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid #2f135d;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #2f135d;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #1b1027;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #1b1027;
+}
+
+tbody tr:hover {
+  background-color: #1b1027;
+}
+
+td, th {
+  width: 20%;
 }
