@@ -1,11 +1,4 @@
-export enum Grupo {
-  AMIGO = 'Amigos',
-  FAMILIA = 'Familiares',
-  ESCOLA = 'Colegas da escola',
-  IGREJA = 'Membros da igreja',
-  TRABALHO = 'Colegas de trabalho',
-value="value",
-}
+import { Grupo } from '../models/grupo';
 
 export class Contato {
   private nome: string;

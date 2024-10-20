@@ -1,4 +1,4 @@
-import { Grupo, Contato } from "./contato";
+import { Contato } from "../models/contato";
 
 export class Agenda {
   private contatos: Contato[];

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Grupo, Contato } from './contato';
-import { Agenda } from './agenda';
+import { Contato } from '../models/contato';
+import { Agenda } from '../models/agenda';
+import { Grupo } from '../models/grupo';
+
 
 @Component({
   selector: 'app-adiciona-contato',
