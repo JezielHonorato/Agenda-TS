@@ -1,5 +1,5 @@
 <main>
-  <form>
+  <form class="formNovoContato">
     <label for="nome">Nome:</label>
     <input #nome type="text" placeholder="Nome" name="nome" id="nome" required>
 
@@ -20,7 +20,6 @@
     <input type="button" value="Cadastrar" 
     (click)="adicionar(nome.value, telefone.value, email.value, dataNascimento.value, grupo.value)">
   </form>
-
 
   <table>
     <thead>

@@ -22,7 +22,7 @@ export class AdicionaContatoComponent {
   adicionar(nome: string, telefone: string, email: string, data: string, grupo: string): void {
     const grupoEnum = Grupo[grupo as keyof typeof Grupo];
     const pessoa = new Contato(nome, telefone, email, data, grupoEnum);
-    
+
     if (this.agenda.adicionarContato(pessoa)) {
       this.contatos = this.agenda.contatosList;
     }
