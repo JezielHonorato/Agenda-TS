@@ -1,11 +1,6 @@
-import { Injectable } from '@angular/core';
 import { Grupo } from '../models/grupo';
 
-@Injectable({
-  providedIn: 'root'
-})
-
-export class ContatoService {
+export class Contato {
   private nome: string;
   private telefone: string;
   private email?: string;

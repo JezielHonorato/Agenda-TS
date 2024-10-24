@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Contato } from "../models/contato";
+import { Contato } from './models/contato';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +8,8 @@ import { Contato } from "../models/contato";
 export class AgendaService {
   private contatos: Contato[];
 
-  constructor(...contatos: Contato[]) {
-    this.contatos = contatos;
+  constructor() {
+    this.contatos = [];
   }
 
   adicionarContato(contato: Contato): boolean {
@@ -52,7 +52,7 @@ export class AgendaService {
     return false;
   }
 
-  listarContatos(): void {
+  listarContatosConsole(): void {
     this.contatos.forEach(contato => {
       console.log(
         `Nome: ${contato.getNome()}, Telefone: ${contato.getTelefone()}, Email: ${contato.getEmail()}, Tipo: ${contato.getGrupo()}`

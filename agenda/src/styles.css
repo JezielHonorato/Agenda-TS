@@ -109,3 +109,8 @@ tbody tr:hover {
 td, th {
   width: 20%;
 }
+
+.titulo{
+  display: flex;
+  justify-self: center;
+}

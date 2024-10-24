@@ -1,1 +1,22 @@
-<p>exibe-contato works!</p>
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>E-mail</th>
+        <th>Aniversário</th>
+        <th>Grupo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contato of contatos">
+        <td>{{ contato.getNome() }}</td>
+        <td>{{ contato.getTelefone() }}</td>
+        <td>{{ contato.getEmail() }}</td>
+        <td>{{ contato.getAniversario() | date:'dd/MM/yyyy' }}</td>
+        <td>{{ contato.getGrupo() }}</td>
+      </tr>
+    </tbody>
+  </table>
+</main>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { AgendaService } from '../agenda.service';
 import { Contato } from '../models/contato';
-import { Agenda } from '../models/agenda';
 import { Grupo } from '../models/grupo';
 
 
@@ -9,15 +9,12 @@ import { Grupo } from '../models/grupo';
   templateUrl: './adiciona-contato.component.html',
   styleUrls: ['./adiciona-contato.component.css']
 })
-
 export class AdicionaContatoComponent {
-  private agenda: Agenda;
   contatos: Contato[] = [];
   Grupo = Grupo;
   grupos: (keyof typeof Grupo)[];
 
-  constructor() {
-    this.agenda = new Agenda();
+  constructor(private agenda: AgendaService) {
     this.grupos = Object.keys(Grupo) as (keyof typeof Grupo)[];
   }
 
@@ -26,8 +23,7 @@ export class AdicionaContatoComponent {
     const pessoa = new Contato(nome, telefone, email, data, grupoEnum);
 
     if (this.agenda.adicionarContato(pessoa)) {
-      this.contatos = this.agenda.contatosList;
+      console.log("Contato adicionado com sucesso");
     }
-    console.log("Contato adicionado com sucesso");
   }
 }
