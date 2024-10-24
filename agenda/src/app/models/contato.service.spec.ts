@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ExibeContatoService } from './exibe-contato.service';
+import { ContatoService } from './contato.service';
 
-describe('ExibeContatoService', () => {
-  let service: ExibeContatoService;
+describe('ContatoService', () => {
+  let service: ContatoService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ExibeContatoService);
+    service = TestBed.inject(ContatoService);
   });
 
   it('should be created', () => {

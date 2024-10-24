@@ -1,6 +1,11 @@
+import { Injectable } from '@angular/core';
 import { Contato } from "../models/contato";
 
-export class Agenda {
+@Injectable({
+  providedIn: 'root'
+})
+
+export class AgendaService {
   private contatos: Contato[];
 
   constructor(...contatos: Contato[]) {
