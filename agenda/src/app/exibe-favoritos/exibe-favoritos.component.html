@@ -11,18 +11,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let contato of contatos">
+      <tr *ngFor="let contato of getContatosFavoritos()">
         <td>{{ contato.getNome() }}</td>
         <td>{{ contato.getTelefone() }}</td>
         <td>{{ contato.getEmail() }}</td>
-        <td>{{ contato.getAniversario() | date : "dd/MM/yyyy" }}</td>
+        <td>{{ contato.getAniversario() | date : 'dd/MM/yyyy' }}</td>
         <td>{{ contato.getGrupo() }}</td>
         <td>
           <input
             type="checkbox"
             name="favorito"
             [checked]="contato.getFavorito()"
-            (change)="favoritar(contato, !contato.getFavorito() )"
+            (change)="favoritar(contato, !contato.getFavorito())"
           />
         </td>
       </tr>

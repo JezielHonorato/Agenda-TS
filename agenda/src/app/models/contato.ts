@@ -6,19 +6,22 @@ export class Contato {
   private email?: string;
   private aniversario?: Date;
   private grupo?: Grupo;
+  private favorito: boolean;
 
   constructor(
     nome: string,
     telefone: string,
     email?: string,
     data?: string,
-    grupo?: Grupo
+    grupo?: Grupo,
+    favorito = false
   ) {
     this.nome = nome;
     this.telefone = telefone;
     this.email = email;
     this.aniversario = data ? new Date(data) : undefined;
     this.grupo = grupo;
+    this.favorito = favorito;
   }
 
   setNome(nome: string): void {
@@ -41,6 +44,10 @@ export class Contato {
     this.grupo = grupo;
   }
 
+  setFavorito(favorito: boolean): void {
+    this.favorito = favorito;
+  }
+
   getNome(): string {
     return this.nome;
   }
@@ -59,5 +66,9 @@ export class Contato {
 
   getGrupo(): Grupo | undefined {
     return this.grupo;
+  }
+
+  getFavorito(): boolean {
+    return this.favorito;
   }
 }

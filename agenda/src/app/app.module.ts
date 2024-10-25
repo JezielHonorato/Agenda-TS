@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 
 import { AdicionaContatoComponent } from './adiciona-contato/adiciona-contato.component';
 import { ExibeContatoComponent } from './exibe-contato/exibe-contato.component';
+import { ExibeFavoritosComponent } from './exibe-favoritos/exibe-favoritos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdicionaContatoComponent,
-    ExibeContatoComponent
+    ExibeContatoComponent,
+    ExibeFavoritosComponent
   ],
   imports: [
     BrowserModule,
